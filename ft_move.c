@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:53:24 by tlorne            #+#    #+#             */
-/*   Updated: 2023/04/27 11:50:39 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/03 14:23:09 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ void	ft_move(t_data *data, int x, int y)
 	//}
 	ft_swap(data, x, y);
 	data->count++;
+	create_map(data);
 }
 
 int	key_move(int key, t_data *data)
 {
 	if (key == KEY_UP || key == KEY_W)
-		ft_move(data, 1, 0);
-	if (key == KEY_DOWN || key == KEY_S)
 		ft_move(data, -1, 0);
+	if (key == KEY_DOWN || key == KEY_S)
+		ft_move(data, 1, 0);
 	if (key == KEY_RIGHT || key == KEY_D)
 		ft_move(data, 0, 1);
 	if (key == KEY_LEFT || key == KEY_A)
