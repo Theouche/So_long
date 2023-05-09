@@ -1,7 +1,7 @@
 /* XPM */
 static char * Img_W_xpm[] = {
 "32 32 11 1",
-" 	c None",
+" 	c #6A760E",
 ".	c #122020",
 "+	c #59C135",
 "@	c #14A02E",

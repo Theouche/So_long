@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:22:54 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/03 11:53:32 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:54:58 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ static void	ft_find_pos(t_data *data)
 				data->coord_x = i;
 				data->coord_y = j;
 			}
+			if (data->map[i][j] == 'E')
+			{
+				data->coord_ex = i;
+				data->coord_ey = j;
+			}
 			j++;
 		}
 		i++;
@@ -77,7 +82,7 @@ char	**ft_stdup(t_data *data, char **map)
 	int		i;
 	size_t		j;
 
-	mapbis = malloc(sizeof(char *) * data->h);
+	mapbis = malloc(sizeof(char *) * (data->h + 1));
 	i = 0;
 	while (i < data->h)
 	{
@@ -88,9 +93,10 @@ char	**ft_stdup(t_data *data, char **map)
 			mapbis[i][j] = map[i][j];
 			j++;
 		}
-		mapbis[i][j] = 0;
+		mapbis[i][j] = '\0';
 		i++;
 	}
+	mapbis[data->h] = NULL;
 	return (mapbis);
 }
 
@@ -109,5 +115,6 @@ int	check_path(t_data *data)
 			ft_printf("ERROR\nThe exit is unreacheable\n");
 		return (0);
 	}
+	ft_free(mapbis);
 	return (1);
 }

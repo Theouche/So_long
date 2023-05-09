@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:47:53 by tlorne            #+#    #+#             */
-/*   Updated: 2023/04/26 15:21:49 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/09 15:45:11 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ char	*ft_read(int fd, char *filename)
 	char	*buff;
 
 	size = ft_len_doc(filename);
-	buff = malloc(sizeof(char) * size);
+	buff = malloc(sizeof(char) * size + 1);
 	read(fd, buff, size);
+	buff[size] = '\0';
 	return (buff);
 }
 

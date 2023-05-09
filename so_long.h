@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 10:17:55 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/03 10:58:32 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/09 14:41:01 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_data
 	char	*map_str;
 	int		coord_x;
 	int		coord_y;
+	int		coord_ex;
+	int		coord_ey;
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*wall;
@@ -77,5 +79,9 @@ int		key_move(int key, t_data *data);
 void	put_img(t_data *data, int x, int y);
 void    create_map(t_data *data);
 void    create_image(t_data *data);
+void	ft_win(t_data *data);
+int		ft_quit(t_data *data);
+void	ft_destroy(t_data *data);
+void	ft_free(char **mapbis);
 
 #endif

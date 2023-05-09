@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:53:24 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/03 14:23:09 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:37:22 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 void	ft_swap(t_data *data, int x, int y)
 {
-	data->map[data->coord_x + x][data->coord_y + y] = 'P';
-	data->map[data->coord_x][data->coord_y] = '0';
-	data->coord_x += x;
-	data->coord_y += y;
+	if (data->coord_x == data->coord_ex && data->coord_y == data->coord_ey)
+	{
+		data->map[data->coord_x + x][data->coord_y + y] = 'P';
+		data->map[data->coord_x][data->coord_y] = 'E';
+		data->coord_x += x;
+		data->coord_y += y;
+	}
+	else
+	{
+		data->map[data->coord_x + x][data->coord_y + y] = 'P';
+		data->map[data->coord_x][data->coord_y] = '0';
+		data->coord_x += x;
+		data->coord_y += y;
+		//block = 0;
+	}
 }
 
 void	ft_move(t_data *data, int x, int y)
@@ -29,14 +40,18 @@ void	ft_move(t_data *data, int x, int y)
 		data->c_collected++;
 		data->map[data->coord_x + x][data->coord_y + y] = '0';
 	}
-	//else if (data->map[data->coord_x + x][data->coord_y + y] == 'E')
-	//{
-	//	if (data->c_collected == data->env->count_c)
-	//		ft_win(data);
-	//}
+	else if (data->map[data->coord_x + x][data->coord_y + y] == 'E')
+	{
+		if (data->c_collected == data->env.count_c)
+			ft_win(data);
+		//data->map[data->coord_x + x][data->coord_y + y] = 'E';
+		//block = 2;
+	}
 	ft_swap(data, x, y);
 	data->count++;
 	create_map(data);
+	//if (block != 0)
+	//	block--;
 }
 
 int	key_move(int key, t_data *data)
@@ -49,7 +64,7 @@ int	key_move(int key, t_data *data)
 		ft_move(data, 0, 1);
 	if (key == KEY_LEFT || key == KEY_A)
 		ft_move(data, 0, -1);
-	//if (key == KEY_ESC)
-	//	ft_quit(data);
+	if (key == KEY_ESC)
+		ft_quit(data);
 	return (0);
 }
