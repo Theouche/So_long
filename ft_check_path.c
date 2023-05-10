@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:22:54 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/09 15:54:58 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/10 15:38:46 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ int	check_path(t_data *data)
 			ft_printf("ERROR\nAt least one collectible is unreacheable\n");
 		if (check_path_error(data, mapbis, 'E'))
 			ft_printf("ERROR\nThe exit is unreacheable\n");
+		ft_free(mapbis);
 		return (0);
 	}
 	ft_free(mapbis);

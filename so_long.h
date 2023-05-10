@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 10:17:55 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/09 14:41:01 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/10 15:18:52 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 	int		c_collected;
 	char	**map;
 	char	*map_str;
+	int		game;
 	int		coord_x;
 	int		coord_y;
 	int		coord_ex;
@@ -83,5 +84,6 @@ void	ft_win(t_data *data);
 int		ft_quit(t_data *data);
 void	ft_destroy(t_data *data);
 void	ft_free(char **mapbis);
+void	ft_count(t_data *data, char c);
 
 #endif

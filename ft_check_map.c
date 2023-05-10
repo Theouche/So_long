@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:20:51 by tlorne            #+#    #+#             */
-/*   Updated: 2023/04/26 14:54:05 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/10 11:06:44 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,23 @@ static int	check_db(t_data *data)
 		j = 0;
 		while (j < data->l)
 		{
-			if (data->map[i][j] == 'C')
+			if (data->map[i][j] != 'C' && data->map[i][j] != 'E' 
+					&& data->map[i][j] != 'P' 
+					&& data->map[i][j] != 'M'
+					&& data->map[i][j] != '1'
+					&& data->map[i][j] != '0')
+			{
+				ft_printf("ERROR\nSome items are are wrong\n");
+				return (0);
+			}
+			else
+				ft_count(data, data->map[i][j]);
+			/*if (data->map[i][j] == 'C')
 				data->env.count_c++;
 			if (data->map[i][j] == 'E')
 				data->env.count_e++;
 			if (data->map[i][j] == 'P')
-				data->env.count_p++;
+				data->env.count_p++;*/
 			j++;
 		}
 		i++;
