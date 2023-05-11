@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:10:20 by tlorne            #+#    #+#             */
-/*   Updated: 2023/04/11 15:18:45 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 10:21:51 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,28 @@ char	*ft_strstr(const char *big, const char *little)
 		i++;
 	}
 	return (NULL);
+}
+
+void	ft_count(t_data *data, char c)
+{
+	if (c == 'C')
+		data->env.count_c++;
+	if (c == 'E')
+		data->env.count_e++;
+	if (c == 'P')
+		data->env.count_p++;
+}
+
+int	check_char(char c)
+{
+	if (c == 'E' || c == 'C' || c == 'P' || c == 'M' || c == '1' || c == '0')
+		return (1);
+	else
+		return (0);
+}
+
+void	ft_error(t_data *data)
+{
+	ft_printf("ERROR\nWrong map (Too many E or P or not enough C)\n");
+	ft_quit(data);
 }

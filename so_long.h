@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 10:17:55 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/10 15:18:52 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 10:22:15 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,12 +78,14 @@ int		check_map(t_data *data);
 int		check_path(t_data *data);
 int		key_move(int key, t_data *data);
 void	put_img(t_data *data, int x, int y);
-void    create_map(t_data *data);
-void    create_image(t_data *data);
+void	create_map(t_data *data);
+void	create_image(t_data *data);
 void	ft_win(t_data *data);
 int		ft_quit(t_data *data);
 void	ft_destroy(t_data *data);
 void	ft_free(char **mapbis);
 void	ft_count(t_data *data, char c);
+int		check_char(char c);
+void	ft_error(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:20:51 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/10 11:06:44 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 10:21:58 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,19 @@ static int	check_db(t_data *data)
 		j = 0;
 		while (j < data->l)
 		{
-			if (data->map[i][j] != 'C' && data->map[i][j] != 'E' 
-					&& data->map[i][j] != 'P' 
-					&& data->map[i][j] != 'M'
-					&& data->map[i][j] != '1'
-					&& data->map[i][j] != '0')
+			if (!check_char(data->map[i][j]))
 			{
 				ft_printf("ERROR\nSome items are are wrong\n");
 				return (0);
 			}
 			else
 				ft_count(data, data->map[i][j]);
-			/*if (data->map[i][j] == 'C')
-				data->env.count_c++;
-			if (data->map[i][j] == 'E')
-				data->env.count_e++;
-			if (data->map[i][j] == 'P')
-				data->env.count_p++;*/
 			j++;
 		}
 		i++;
 	}
 	if (data->env.count_c < 1 || data->env.count_e > 1 || data->env.count_p > 1)
-	{
-		ft_printf("ERROR\nWrong map (Too many E or P or not enough C)\n");
-		return (0);
-	}
+		ft_error(data);
 	return (1);
 }
 

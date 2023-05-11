@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:22:54 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/10 15:38:46 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 09:53:57 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	**ft_stdup(t_data *data, char **map)
 {
 	char	**mapbis;
 	int		i;
-	size_t		j;
+	size_t	j;
 
 	mapbis = malloc(sizeof(char *) * (data->h + 1));
 	i = 0;
@@ -107,7 +107,8 @@ int	check_path(t_data *data)
 	mapbis = ft_stdup(data, data->map);
 	ft_find_pos(data);
 	check_next(data, mapbis, data->coord_x, data->coord_y);
-	if (check_path_error(data, mapbis, 'C') || check_path_error(data, mapbis, 'E'))
+	if (check_path_error(data, mapbis, 'C')
+		|| check_path_error(data, mapbis, 'E'))
 	{
 		if (check_path_error(data, mapbis, 'C'))
 			ft_printf("ERROR\nAt least one collectible is unreacheable\n");
