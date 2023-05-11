@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 10:17:55 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 10:22:15 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 13:18:41 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_data
 	char	**map;
 	char	*map_str;
 	int		game;
+	int		imput;
 	int		coord_x;
 	int		coord_y;
 	int		coord_ex;
@@ -63,9 +64,13 @@ typedef struct s_data
 	void	*win_ptr;
 	void	*wall;
 	void	*empty;
-	void	*player;
+	void	*player_r;
+	void	*player_l;
+	void	*player_u;
+	void	*player_d;
 	void	*exit;
 	void	*collect;
+	void	*mob;
 	t_env	env;
 }	t_data;
 
@@ -81,11 +86,13 @@ void	put_img(t_data *data, int x, int y);
 void	create_map(t_data *data);
 void	create_image(t_data *data);
 void	ft_win(t_data *data);
+void	ft_lose(t_data *data);
 int		ft_quit(t_data *data);
 void	ft_destroy(t_data *data);
 void	ft_free(char **mapbis);
 void	ft_count(t_data *data, char c);
 int		check_char(char c);
 void	ft_error(t_data *data);
+void	choose_image_player(t_data *data, int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:18:12 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 09:46:56 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 13:14:14 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ void	ft_destroy(t_data *data)
 {
 	mlx_destroy_image(data->mlx_ptr, data->wall);
 	mlx_destroy_image(data->mlx_ptr, data->empty);
-	mlx_destroy_image(data->mlx_ptr, data->player);
+	mlx_destroy_image(data->mlx_ptr, data->player_r);
+	mlx_destroy_image(data->mlx_ptr, data->player_l);
+	mlx_destroy_image(data->mlx_ptr, data->player_u);
+	mlx_destroy_image(data->mlx_ptr, data->player_d);
 	mlx_destroy_image(data->mlx_ptr, data->exit);
 	mlx_destroy_image(data->mlx_ptr, data->collect);
+	mlx_destroy_image(data->mlx_ptr, data->mob);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 }
 
@@ -51,5 +55,12 @@ int	ft_quit(t_data *data)
 void	ft_win(t_data *data)
 {
 	ft_printf("Congrats, you win in %d steps\n", data->count);
+	ft_quit(data);
+}
+
+void	ft_lose(t_data *data)
+{
+	ft_printf("LOL, you lose after %d steps\n", data->count);
+	ft_printf("Try again loser\n");
 	ft_quit(data);
 }

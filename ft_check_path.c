@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:22:54 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 09:53:57 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 11:54:11 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	check_path_error(t_data *data, char **mapbis, char c)
 
 static void	check_next(t_data *data, char **mapbis, int x, int y)
 {
-	if (mapbis[x][y] == '1' || mapbis[x][y] == 'X')
+	if (mapbis[x][y] == '1' || mapbis[x][y] == 'X' || mapbis[x][y] == 'M')
 		return ;
 	mapbis[x][y] = 'X';
 	if (x > 0)

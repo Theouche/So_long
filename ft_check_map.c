@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:20:51 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 10:21:58 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 12:02:02 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	check_db(t_data *data)
 		{
 			if (!check_char(data->map[i][j]))
 			{
-				ft_printf("ERROR\nSome items are are wrong\n");
+				ft_printf("ERROR\nSome items are wrong\n");
 				return (0);
 			}
 			else
