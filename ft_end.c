@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:18:12 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 13:14:14 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:17:25 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ void	ft_destroy(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->wall);
 	mlx_destroy_image(data->mlx_ptr, data->empty);
 	mlx_destroy_image(data->mlx_ptr, data->player_r);
+	mlx_destroy_image(data->mlx_ptr, data->player_r1);
 	mlx_destroy_image(data->mlx_ptr, data->player_l);
+	mlx_destroy_image(data->mlx_ptr, data->player_l1);
 	mlx_destroy_image(data->mlx_ptr, data->player_u);
+	mlx_destroy_image(data->mlx_ptr, data->player_u1);
 	mlx_destroy_image(data->mlx_ptr, data->player_d);
+	mlx_destroy_image(data->mlx_ptr, data->player_d1);
 	mlx_destroy_image(data->mlx_ptr, data->exit);
 	mlx_destroy_image(data->mlx_ptr, data->collect);
 	mlx_destroy_image(data->mlx_ptr, data->mob);
@@ -35,6 +39,8 @@ int	ft_quit(t_data *data)
 {
 	int	i;
 
+	if (data->game == -1)
+		exit(0);
 	if (data->game != 0)
 	{
 		ft_destroy(data);

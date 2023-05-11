@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:53:24 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 13:08:25 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:27:55 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	ft_swap(t_data *data, int x, int y)
 
 void	ft_move(t_data *data, int x, int y)
 {
-	data->count++;
 	if (data->map[data->coord_x + x][data->coord_y + y] == '1')
 		return ;
-	else if (data->map[data->coord_x + x][data->coord_y + y] == 'M')
+	data->count++;
+	if (data->map[data->coord_x + x][data->coord_y + y] == 'M')
 		ft_lose(data);
 	else if (data->map[data->coord_x + x][data->coord_y + y] == 'C')
 	{

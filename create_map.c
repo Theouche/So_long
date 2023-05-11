@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:51:31 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 13:20:39 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 13:59:57 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,13 @@ void	choose_image_player(t_data *data, int x, int y)
 {
 	if (data->game == 1)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_r, x * 32, y * 32);
-	else if (data->imput == KEY_UP || data->imput == KEY_W)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_u, x * 32, y * 32);
-	else if (data->imput == KEY_DOWN || data->imput == KEY_S)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_d, x * 32, y * 32);
-	else if (data->imput == KEY_RIGHT || data->imput == KEY_D)
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_r, x * 32, y * 32);
-	else if (data->imput == KEY_LEFT || data->imput == KEY_A)
-                mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_l, x * 32, y * 32);
+	else
+	{
+		if (data->game % 2 == 0)
+			put_image_odd(data, x, y);
+		else
+			put_image_even(data, x, y);
+	}
 	data->game++;
 }
 
@@ -76,6 +75,14 @@ void	create_image_player(t_data *data)
 	data->player_u = mlx_xpm_file_to_image(data->mlx_ptr, "./img/Char_U.xpm",
 			&data->hp, &data->lp);
 	data->player_d = mlx_xpm_file_to_image(data->mlx_ptr, "./img/Char_D.xpm",
+			&data->hp, &data->lp);
+	data->player_r1 = mlx_xpm_file_to_image(data->mlx_ptr, "./img/Char_R1.xpm",
+			&data->hp, &data->lp);
+	data->player_l1 = mlx_xpm_file_to_image(data->mlx_ptr, "./img/Char_L1.xpm",
+			&data->hp, &data->lp);
+	data->player_u1 = mlx_xpm_file_to_image(data->mlx_ptr, "./img/Char_U1.xpm",
+			&data->hp, &data->lp);
+	data->player_d1 = mlx_xpm_file_to_image(data->mlx_ptr, "./img/Char_D1.xpm",
 			&data->hp, &data->lp);
 }
 

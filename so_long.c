@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:21:54 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 09:32:42 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 14:22:39 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(int argc, char **argv)
 			data.h * 32, "Test");
 	create_image(&data);
 	create_map(&data);
-	mlx_key_hook(data.win_ptr, key_move, &data);
+	//mlx_key_hook(data.win_ptr, key_move, &data);
+	mlx_hook(data.win_ptr, 2, 1L << 0, key_move, &data);
 	mlx_hook(data.win_ptr, 17, 0, ft_quit, &data);
 	mlx_loop(data.mlx_ptr);
 	return (0);

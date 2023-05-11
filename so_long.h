@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 10:17:55 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 13:18:41 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 13:59:39 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,13 @@ typedef struct s_data
 	void	*wall;
 	void	*empty;
 	void	*player_r;
+	void	*player_r1;
 	void	*player_l;
+	void    *player_l1;
 	void	*player_u;
+	void    *player_u1;
 	void	*player_d;
+	void    *player_d1;
 	void	*exit;
 	void	*collect;
 	void	*mob;
@@ -94,5 +98,7 @@ void	ft_count(t_data *data, char c);
 int		check_char(char c);
 void	ft_error(t_data *data);
 void	choose_image_player(t_data *data, int x, int y);
+void    put_image_odd(t_data *data, int x, int y);
+void    put_image_even(t_data *data, int x, int y);
 
 #endif
