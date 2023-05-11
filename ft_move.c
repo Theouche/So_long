@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:53:24 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 09:40:13 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 10:42:52 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_move(t_data *data, int x, int y)
 		if (data->c_collected == data->env.count_c)
 			ft_win(data);
 	}
+	ft_printf("steps : %d\n", data->count);
 	ft_swap(data, x, y);
 	create_map(data);
 }
