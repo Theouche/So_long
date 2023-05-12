@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:47:53 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/12 14:40:31 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/12 16:20:13 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ char	*ft_read(int fd, char *filename)
 	char	*buff;
 
 	size = ft_len_doc(filename);
+	if (size <= 1)
+		return (NULL);
 	buff = malloc(sizeof(char) * size + 1);
 	read(fd, buff, size);
 	buff[size] = '\0';
@@ -62,6 +64,11 @@ int	get_map(t_data *data, char *filename)
 	}
 	data->map_str = ft_read(fd, filename);
 	close(fd);
+	if (!data->map_str)
+	{
+		free(data->map_str);
+		return (0);
+	}
 	data->map = ft_split(data->map_str, '\n');
 	return (1);
 }
@@ -74,6 +81,7 @@ int	get_map_n_check(t_data *data, int argc, char **argv)
 			ft_printf("Error\nMap name is missing\n");
 		if (argc > 2)
 			ft_printf("Error\nOnly one map name is expected\n");
+		data->game = -1;
 		return (0);
 	}
 	if (!get_map(data, argv[1]))

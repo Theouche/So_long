@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:20:51 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/12 14:35:39 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/12 16:16:01 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static int	check_shape(t_data *data)
 	data->l = 0;
 	while (data->map[0][j++])
 		data->l++;
-	if (data->l == data->h)
+	if (data->l < 2 || data->h < 2)
 	{
 		ft_printf("ERROR\nmap is not rectangular\n");
 		return (0);
