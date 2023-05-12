@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 18:20:51 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/12 14:17:32 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/12 14:35:39 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ static int	check_db(t_data *data)
 		}
 		i++;
 	}
-	if (data->env.count_c < 1 || data->env.count_e != 1 || data->env.count_p != 1)
+	if (data->env.count_c < 1 || data->env.count_e != 1
+		|| data->env.count_p != 1)
 		ft_error(data);
 	return (1);
 }

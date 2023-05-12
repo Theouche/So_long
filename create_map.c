@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:51:31 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 20:01:02 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/12 14:34:04 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 void	choose_image_player(t_data *data, int x, int y)
 {
 	if (data->game == 1)
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_r, x * 32, y * 32);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_r,
+			x * 32, y * 32);
 	else
 	{
 		if (data->game % 2 == 0)
@@ -104,6 +105,6 @@ void	create_image(t_data *data)
 	create_image_player(data);
 	data->step = mlx_xpm_file_to_image(data->mlx_ptr, "./img/steps.xpm",
 			&data->hp, &data->lp);
-	data->step_wall = mlx_xpm_file_to_image(data->mlx_ptr, "./img/step_wall.xpm",
-			&data->hp, &data->lp);
+	data->step_wall = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./img/step_wall.xpm", &data->hp, &data->lp);
 }
