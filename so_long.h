@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 10:17:55 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 13:59:39 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 19:45:57 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define KEY_D 100
 # define KEY_A 97
 # define KEY_ESC 65307
+# define FOOTER_H 32 
 
 typedef struct s_env
 {
@@ -75,6 +76,8 @@ typedef struct s_data
 	void	*exit;
 	void	*collect;
 	void	*mob;
+	void	*step;
+	void	*step_wall;
 	t_env	env;
 }	t_data;
 
@@ -100,5 +103,6 @@ void	ft_error(t_data *data);
 void	choose_image_player(t_data *data, int x, int y);
 void    put_image_odd(t_data *data, int x, int y);
 void    put_image_even(t_data *data, int x, int y);
+void	ft_footer(t_data *data);
 
 #endif

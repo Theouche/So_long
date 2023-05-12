@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:18:12 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 14:17:25 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 19:56:26 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_destroy(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->exit);
 	mlx_destroy_image(data->mlx_ptr, data->collect);
 	mlx_destroy_image(data->mlx_ptr, data->mob);
+	mlx_destroy_image(data->mlx_ptr, data->step);
+	mlx_destroy_image(data->mlx_ptr, data->step_wall);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 }
 

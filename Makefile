@@ -6,7 +6,7 @@
 #    By: tlorne <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/04 15:46:06 by tlorne            #+#    #+#              #
-#    Updated: 2023/05/11 13:57:16 by tlorne           ###   ########.fr        #
+#    Updated: 2023/05/11 15:55:51 by tlorne           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 
 SRC = so_long.c utils.c get_map.c \
 		ft_check_map.c ft_check_path.c \
-		ft_move.c create_map.c put_image.c \
+		ft_move.c create_map.c put_image.c ft_footer.c \
 		ft_free.c ft_end.c \
 
 OBJ = ${SRC:.c=.o}

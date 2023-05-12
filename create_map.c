@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:51:31 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 13:59:57 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/11 20:01:02 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	create_map(t_data *data)
 		}
 		y++;
 	}
+	ft_footer(data);
 }
 
 void	create_image_player(t_data *data)
@@ -101,4 +102,8 @@ void	create_image(t_data *data)
 	data->mob = mlx_xpm_file_to_image(data->mlx_ptr, "./img/M.xpm",
 			&data->hp, &data->lp);
 	create_image_player(data);
+	data->step = mlx_xpm_file_to_image(data->mlx_ptr, "./img/steps.xpm",
+			&data->hp, &data->lp);
+	data->step_wall = mlx_xpm_file_to_image(data->mlx_ptr, "./img/step_wall.xpm",
+			&data->hp, &data->lp);
 }

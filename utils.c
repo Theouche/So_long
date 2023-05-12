@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 15:10:20 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 10:21:51 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/12 14:20:05 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int	check_char(char c)
 
 void	ft_error(t_data *data)
 {
-	ft_printf("ERROR\nWrong map (Too many E or P or not enough C)\n");
+	ft_printf("ERROR\nWrong number of C, P or E\n");
 	ft_quit(data);
 }

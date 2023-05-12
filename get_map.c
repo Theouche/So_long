@@ -6,7 +6,7 @@
 /*   By: tlorne <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:47:53 by tlorne            #+#    #+#             */
-/*   Updated: 2023/05/11 14:16:26 by tlorne           ###   ########.fr       */
+/*   Updated: 2023/05/12 13:27:26 by tlorne           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	get_map(t_data *data, char *filename)
 	fd = open(filename, O_RDWR);
 	if (fd == -1)
 	{
-		data->game = -1;
+		//data->game = -1;
 		ft_printf("ERROR\nOpen failed\n");
 		return (0);
 	}
@@ -78,7 +78,10 @@ int	get_map_n_check(t_data *data, int argc, char **argv)
 		return (0);
 	}
 	if (!get_map(data, argv[1]))
+	{
+		data->game = -1;
 		return (0);
+	}
 	if (!check_map(data))
 		return (0);
 	return (1);
